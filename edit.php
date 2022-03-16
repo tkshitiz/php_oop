@@ -1,6 +1,11 @@
 <?php require_once('./config/operation.php');
   $operation= new operation();
-    
+  $operation->update();
+
+  $id= $_GET['id'];
+  $result= $operation->single_data($id);
+  $singleData=mysqli_fetch_assoc($result);
+
 ?>
 
 <!DOCTYPE html>
@@ -18,19 +23,17 @@
             <div class="col-lg-6 m-auto">
                 <div class="card mt-5">
                     <div class="card-header">
-                        <h2> Signup Form </h2>
+                        <h2>Update</h2>
                     </div>
-                    <?php echo $operation->store_record();?>
+                  
                         <div class="card-body">
-                        
                             <form method="POST" action="">
-                                <input type="text" name="first" placeholder=" First Name" class="form-control mb-2" required>
-                                <input type="text" name="last" placeholder=" Last Name" class="form-control mb-2" required>
-                                <input type="text" name="username" placeholder=" User Name" class="form-control mb-2" required>
-                                <input type="Email" name="email" placeholder=" email" class="form-control mb-2" required>
+                                <input type="text" name="first" placeholder=" First Name" class="form-control mb-2" value="<?php echo $singleData['first'];?>" required>
+                                <input type="text" name="last" placeholder=" Last Name" class="form-control mb-2"  value="<?php echo $singleData['last'];?>" required>
+                                <input type="text" name="username" placeholder=" User Name" class="form-control mb-2"  value="<?php echo $singleData['username'];?>" required>
+                                <input type="Email" name="email" placeholder=" email" class="form-control mb-2"  value="<?php echo $singleData['useremail'];?>"  required>
                         </div>
-                   
-                            <button class="btn btn-success" name="btn_save"> Save </button> <div class="card-footer">
+                        <button class="btn btn-success" name="btn_update">Update</button> <div class="card-footer">
                         </form>
                     </div>
                 </div>

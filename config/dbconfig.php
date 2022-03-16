@@ -1,5 +1,5 @@
 <?php
-require_once("./config/operation.php");
+
     class dbconfig 
     {
      public $connection;
@@ -9,12 +9,12 @@ require_once("./config/operation.php");
      }
     public function db_connect()
     {
-        $this->connection=mysqli_connect("localhost","root","","crud");
-        if(mysqli_connect_error())
-        {
-            die("connection failed !!!");
-        }
-       
+       $conn= $this->connection=mysqli_connect("localhost","root","","crud");
+      
+       if(!$conn)
+       {
+           echo "error";
+       }
      
     }
 
@@ -26,6 +26,8 @@ require_once("./config/operation.php");
     }
 
  }
+//  $db= new dbconfig();
+
 
 
 

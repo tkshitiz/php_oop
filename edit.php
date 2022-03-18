@@ -1,10 +1,11 @@
 <?php require_once('./config/operation.php');
   $operation= new operation();
   $operation->update();
-
+   
   $id= $_GET['id'];
   $result= $operation->single_data($id);
-  $singleData=mysqli_fetch_assoc($result);
+//   $singleData=mysqli_fetch_assoc($result);
+$singleData=mysqli_fetch_assoc($result);
 
 ?>
 

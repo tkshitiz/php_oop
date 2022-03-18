@@ -4,6 +4,7 @@
    
   $id= $_GET['id'];
   $result= $operation->single_data($id);
+
   $singleData=mysqli_fetch_assoc($result);
 
 ?>
